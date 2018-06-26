@@ -43,6 +43,24 @@ INSTALLED_APPS = [
     'user.apps.UserConfig',
     'unit.apps.UnitConfig',
 
+    'article.apps.ArticleConfig',
+    'certificate.apps.CertificateConfig',
+    'company.apps.CompanyConfig',
+    'detail_skill.apps.DetailSkillConfig',
+    # 'detail_skill.apps.UserDetailSkillConfig',
+    'education.apps.EducationConfig',
+    # 'education.apps.MajorConfig',
+    # 'education.apps.EducationMajorConfig',
+    # 'education.apps.UserEducationConfig',
+    'experience.apps.ExperienceConfig',
+    'hiring_partner.apps.HiringPartnerConfig',
+    'overall_skill.apps.OverallSkillConfig',
+    # 'overall_skill.apps.UserOverallSkillConfig',
+    'portfolio.apps.PortfolioConfig',
+    'skill.apps.SkillConfig',
+    # 'skill.apps.UserSkillConfig',
+    'video.apps.VideoConfig',
+
     # custom modules
     'helpers.apps.HelpersConfig',
 

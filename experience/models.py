@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 class Experience(models.Model):
     class Meta:
         db_table = "experience"
-    
+
     name = models.CharField(max_length=45)
     job = models.CharField(max_length=45)
     beginning_date = models.DateField()
@@ -13,7 +13,7 @@ class Experience(models.Model):
         User,
         on_delete=models.CASCADE
     )
-    is_active = models.BooleanField(initial=True)
+    is_active = models.BooleanField(default=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     created_by = models.ForeignKey(
@@ -21,12 +21,12 @@ class Experience(models.Model):
         on_delete=models.SET_NULL,
         null=True,
         blank=True,
-        related_name='unit_created_by'
+        related_name='experience_created_by'
     )
     updated_by = models.ForeignKey(
         User,
         on_delete=models.SET_NULL,
         null=True,
         blank=True,
-        related_name='unit_updated_by'
+        related_name='experience_updated_by'
     )

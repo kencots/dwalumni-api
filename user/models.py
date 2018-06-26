@@ -4,21 +4,22 @@ from django.contrib.auth.models import User
 class Profile(models.Model):
     class Meta:
         db_table = "profile"
-    
+
     gender = (
         ('M', 'Male'),
         ('F', 'Female'),
-    )    
+    )
     birthdate = models.DateTimeField()
     about = models.CharField(max_length=255)
-    address = models.CharField()
+    address = models.CharField(max_length=255)
     expectation_salary = models.FloatField()
     expectation_work_location = models.CharField(max_length=255)
     user = models.ForeignKey(
         User,
         on_delete=models.CASCADE
     )
-    is_active = models.BooleanField(initial=True)
+
+    is_active = models.BooleanField(default=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     created_by = models.ForeignKey(
@@ -26,12 +27,12 @@ class Profile(models.Model):
         on_delete=models.SET_NULL,
         null=True,
         blank=True,
-        related_name='unit_created_by'
+        related_name='profile_created_by'
     )
     updated_by = models.ForeignKey(
         User,
         on_delete=models.SET_NULL,
         null=True,
         blank=True,
-        related_name='unit_updated_by'
-    )    
+        related_name='profile_updated_by'
+    )
