@@ -11,6 +11,7 @@ class Company(models.Model):
         User,
         on_delete=models.CASCADE
     )
+    is_active = models.BooleanField(initial=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     created_by = models.ForeignKey(
