@@ -14,26 +14,15 @@ DATABASES = {
     # central db (users, companies)
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'sanic',
+        'NAME': 'dwalumni',
         'USER': 'root',
-        'PASSWORD': '',
+        'PASSWORD': '123qweasd',
         'HOST': '127.0.0.1',
         'PORT': '3306',
         'OPTIONS': {
             'sql_mode': 'traditional',
         }
     },
-    # 'client_db': {
-    #     'ENGINE': 'django.db.backends.mysql',
-    #     'NAME': 'zahir_x_django_client',
-    #     'USER': 'root',
-    #     'PASSWORD': '',
-    #     'HOST': '127.0.0.1',
-    #     'PORT': '3306',
-    #     'OPTIONS': {
-    #         'sql_mode': 'traditional',
-    #     }
-    # },
 }
 
 STATIC_URL = '/static/'

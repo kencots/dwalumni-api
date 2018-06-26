@@ -1,7 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 
-class Skills(models.Model):
+class Skill(models.Model):
     class Meta:
         db_table = 'skill'
 
@@ -26,12 +26,12 @@ class Skills(models.Model):
         related_name='unit_updated_by'
     )
 
-class UserSkills(models.Model):
+class UserSkill(models.Model):
     class Meta:
         db_table = 'user_skill'
 
     skill = models.ForeignKey(
-        Skills,
+        Skill,
         on_delete = models.CASCADE
     )
     user = models.ForeignKey(
@@ -55,3 +55,4 @@ class UserSkills(models.Model):
         blank=True,
         related_name='unit_updated_by'
     )
+

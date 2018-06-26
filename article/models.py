@@ -1,8 +1,8 @@
 from django.db import models
 from django.contrib.auth.models import User
-from skills.models import Skills
+from skill.models import Skill
 
-class Articles(models.Model):
+class Article(models.Model):
     class Meta:
         db_table = "article"
 
@@ -14,7 +14,7 @@ class Articles(models.Model):
         on_delete=models.CASCADE
     )
     skill = models.ForeignKey(
-       Skills,
+       Skill,
        on_delete=models.CASCADE
     )
     created_at = models.DateTimeField(auto_now_add=True)

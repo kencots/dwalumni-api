@@ -1,30 +1,20 @@
 from django.db import models
 from django.contrib.auth.models import User
-from skills.models import Skills
+from skill.models import Skill
 
-class OverallSkills(models.Model):
+class Certificate(models.Model):
     class Meta:
-        db_table = "skill_exam_overall"
+        db_table = "certificate"
 
-    name = models.CharField(max_length=50)
-    skill = models.ForeignKey(
-        Skills,
-        on_delete=models.CASCADE
-    )
-
-class UserOverallSkills(models.Model):
-    class Meta:
-        db_table = "user_overall_skills"
-
-    overall_skill = models.ForeignKey(
-        OverallSkills,
-        on_delete=models.CASCADE
-    )
+    pic = models.CharField(max_length=255)
     user = models.ForeignKey(
         User,
         on_delete=models.CASCADE
     )
-    score = models.SmallIntegerField() 
+    skill = models.ForeignKey(
+        Skill,
+        on_delete=models.CASCADE
+    )
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     created_by = models.ForeignKey(

@@ -1,5 +1,8 @@
 from django.apps import AppConfig
 
 
-class DetailSkillsConfig(AppConfig):
-    name = 'detail_skills'
+class DetailSkillConfig(AppConfig):
+    name = 'detail_skill'
+
+class UserDetailSkillConfig(AppConfig):
+    name = 'user_detail_skill'

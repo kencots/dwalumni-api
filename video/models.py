@@ -2,21 +2,21 @@ from django.db import models
 from django.contrib.auth.models import User
 from skill.models import Skill
 
-class Portfolios(models.Model):
+class Video(models.Model):
     class Meta:
-        db_table = 'portfolio'
-
+        db_table = "video"
+        
     title = models.CharField(max_length=128)
-    desc = models.TextField(blank=True, null=False)
-    github_url = models.CharField(max_length=255)
+    video_url = models.CharField(max_length=255)
     user = models.ForeignKey(
         User,
-        on_delete = models.CASCADE
+        on_delete=models.CASCADE
     )
-    skill    = models.ForeignKey(
+    skill = models.ForeignKey(
         Skill,
-        on_delete = models.CASCADE
+        on_delete=models.CASCADE
     )
+    
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     created_by = models.ForeignKey(

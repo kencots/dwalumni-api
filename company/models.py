@@ -1,18 +1,14 @@
 from django.db import models
 from django.contrib.auth.models import User
-from skills.models import Skills
 
-class Certificates(models.Model):
+class Company(models.Model):
     class Meta:
-        db_table = "certificate"
+        db_table = "company"
 
-    pic = models.CharField(max_length=255)
+    name = models.CharField(max_length=32)
+    address = models.CharField(max_length=255)
     user = models.ForeignKey(
         User,
-        on_delete=models.CASCADE
-    )
-    skill = models.ForeignKey(
-        Skills,
         on_delete=models.CASCADE
     )
     created_at = models.DateTimeField(auto_now_add=True)

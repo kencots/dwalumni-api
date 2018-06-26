@@ -1,14 +1,14 @@
 from django.db import models
 from django.contrib.auth.models import User
-from skills.models import Skills
+from skill.models import Skill
 
-class DetailSkills(models.Model):
+class DetailSkill(models.Model):
     class Meta:
         db_table = "detail_skill"
     
     name = model.CharField(max_length=50)
     skill = models.ForeignKey(
-        Skills,
+        Skill,
         on_delete=models.CASCADE
     )
     created_at = models.DateTimeField(auto_now_add=True)
@@ -28,12 +28,12 @@ class DetailSkills(models.Model):
         related_name='unit_updated_by'
     )
 
-class DetailUserSkills(models.Model):
+class UserDetailSkill(models.Model):
     class Meta:
         db_table = "detail_user_skill"
     
     skill_exam_detail = models.ForeignKey(
-        DetailSkills,
+        DetailSkill,
         on_delete=models.CASCADE
     )
     created_at = models.DateTimeField(auto_now_add=True)
