@@ -12,11 +12,11 @@ class OverallSkills(models.Model):
         on_delete=models.CASCADE
     )
 
-class UserOverallSkill(models.Model):
+class UserOverallSkills(models.Model):
     class Meta:
-        db_table = "user_overall_skill"
+        db_table = "user_overall_skills"
 
-    skill_exam_overlay = models.ForeignKey(
+    overall_skill = models.ForeignKey(
         OverallSkills,
         on_delete=models.CASCADE
     )

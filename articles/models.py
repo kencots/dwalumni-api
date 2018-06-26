@@ -5,6 +5,7 @@ from skills.models import Skills
 class Articles(models.Model):
     class Meta:
         db_table = "article"
+
     title = models.CharField(max_length=128)
     body = models.TextField(blank=True, null=False)
     pic = models.CharField(max_length=255)

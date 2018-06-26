@@ -3,7 +3,7 @@ from django.contrib.auth.models import User
 
 class Skills(models.Model):
     class Meta:
-    db_table = 'skill'
+        db_table = 'skill'
 
     name = models.CharField(max_length=50)
     icon = models.CharField(max_length=128)

@@ -1,6 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
-from skill.models import Skills
+from skills.models import Skills
 
 class Certificates(models.Model):
     class Meta:
