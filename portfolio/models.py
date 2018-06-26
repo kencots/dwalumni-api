@@ -2,7 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 from skill.models import Skill
 
-class Portfolios(models.Model):
+class Portfolio(models.Model):
     class Meta:
         db_table = 'portfolio'
 
@@ -17,6 +17,7 @@ class Portfolios(models.Model):
         Skill,
         on_delete = models.CASCADE
     )
+    is_active = models.BooleanField(initial=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     created_by = models.ForeignKey(
