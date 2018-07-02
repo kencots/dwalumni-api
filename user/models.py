@@ -5,11 +5,13 @@ class Profile(models.Model):
     class Meta:
         db_table = "profile"
 
-    gender = (
+    GENDER_CHOICES = (
         ('M', 'Male'),
         ('F', 'Female'),
     )
-    birthdate = models.DateTimeField()
+
+    # gender = models.CharField(max_length=1, choices=GENDER_CHOICES)
+    birthdate = models.DateField()
     about = models.CharField(max_length=255)
     address = models.CharField(max_length=255)
     expectation_salary = models.FloatField()

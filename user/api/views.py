@@ -12,7 +12,8 @@ from rest_framework_jwt.settings import api_settings
 from rest_framework.pagination import LimitOffsetPagination
 from rest_framework.decorators import action
 
-from ..serializers import UserSerializer
+from ..serializers import UserSerializer, ProfileSerializer
+from ..models import Profile
 
 class UserViewset(ModelViewSet):
     permission_classes = (IsAuthenticated, )
@@ -50,3 +51,18 @@ class UserViewset(ModelViewSet):
             field_names,
             status=status.HTTP_200_OK
         )
+
+    @detail_route(methods=['get', 'post', 'patch'], permission_classes=[IsAuthenticated])
+    def profile(self, request, pk=None):
+        try:
+            profile = Profile.objects.filter(user=pk)
+        except Profile.DoesNotExist:
+            return Response('hahah')
+
+        if request.method == 'GET':
+            serializer = ProfileSerializer(profile, many=True)
+            return Response(serializer.data)
+
+        if request.method == 'POST':
+            serializer = ProfileSerializer(profile)
+            return Response(request.DATA)
